@@ -516,7 +516,9 @@ const openSettingsWindow = async () => {
 	// Create shortcut to close window
 	keyboard.registerEscape()
 
+	console.log('Before showing preferences window');
 	windows.preferencesWindow = preferences.show()
+	console.log('After showing preferences window');
 
 	// Set events on preferences window
 	if ( windows.preferencesWindow ) {

@@ -32,6 +32,7 @@ const getDefaults = () => ( {
 		fillColor: 'unset',
 		strokeColor: 'unset',
 		circleThickness: 2,
+		detectionMode: 'off', // New preference for detection mode
 	},
 	actions: {
 		followMouse: [],
@@ -98,7 +99,7 @@ const preferencesConfig = {
 	/**
      * The preferences window is divided into sections. Each section has a label, an icon, and one or
      * more fields associated with it. Each section should also be given a unique ID.
-	 SEE: 'main/register.tsx'
+	 * SEE: 'main/register.tsx'
      */
 	sections: [
 		{
@@ -216,7 +217,6 @@ const preferencesConfig = {
 							},
 							{
 								label: 'Stroke Width',
-								key: 'strokeWidth',
 								type: 'slider',
 								min: 0,
 								max: 20,
@@ -233,6 +233,17 @@ const preferencesConfig = {
 								key: 'positionY',
 								type: 'number',
 								help: 'Vertical position of the crosshair (in pixels)',
+							},
+							{
+								label: 'Enemy Detection Mode',
+								key: 'detectionMode',
+								type: 'radio',
+								options: [
+									{ label: 'Off', value: 'off' },
+									{ label: 'Pixel Detection', value: 'pixel' },
+									{ label: 'AI Detection (Experimental)', value: 'ai' },
+								],
+								help: 'Select the method for enemy detection. "Pixel Detection" changes crosshair color based on enemy health bars. "AI Detection" will use an AI model for improved detection (future feature).',
 							},
 						],
 					},
@@ -329,7 +340,7 @@ const preferencesConfig = {
 								label: 'Toggle/Hold to Tilt',
 								key: 'tiltToggle',
 								type: 'checkbox',
-								options: [ { label: 'Toggle tilt on/off when pressed (instead of hold)', value: 'tiltToggle' } ],
+								options: [ { label: 'Keypress toggles tilt on and off i.e. Use toggle-to-tilt instead of hold-to-tilt.', value: 'tiltToggle' } ],
 								help: 'Keypress toggles tilt on and off i.e. Use toggle-to-tilt instead of hold-to-tilt.',
 							},
 							{
@@ -428,7 +439,6 @@ const preferencesConfig = {
 								key: 'moveDown',
 								type: 'accelerator',
 								help: 'Move the crosshair down 1 pixel.',
-								modifierRequired: true,
 							},
 							{
 								label: 'Move Left',
@@ -591,13 +601,13 @@ const preferencesConfig = {
 							{
 								heading: `CrossOver v${app.getVersion()}`,
 								content: `
-									<p>A crosshair overlay for any screen.<br /> \
-									Feedback and bug reports welcome at <a target="_blank" href="https://github.com/lacymorrow/crossover/issues">lacymorrow/crossover</a>.<br /> \
-									Developed by Lacy Morrow. Crosshairs thanks to /u/IrisFlame.</p> \
-									<p>Copyright © Lacy Morrow ${new Date().getFullYear()}</p> \
-									<p>${debugInfo()}</p> \
-									<br/> \
-									<p>Looking for a designer!<br />We want to redesign CrossOver, reach out to <a target="_blank" href="mailto:me@lacymorrow.com">me@lacymorrow.com</a> \
+									<p>A crosshair overlay for any screen.<br /> 
+									Feedback and bug reports welcome at <a target="_blank" href="https://github.com/lacymorrow/crossover/issues">lacymorrow/crossover</a>.<br /> 
+									Developed by Lacy Morrow. Crosshairs thanks to /u/IrisFlame.</p> 
+									<p>Copyright © Lacy Morrow ${new Date().getFullYear()}</p> 
+									<p>${debugInfo()}</p> 
+									<br/> 
+									<p>Looking for a designer!<br />We want to redesign CrossOver, reach out to <a target="_blank" href="mailto:me@lacymorrow.com">me@lacymorrow.com</a> 
 									for details.</p>
 								`,
 								type: 'message',

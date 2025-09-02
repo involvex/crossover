@@ -57,7 +57,7 @@ console.time( 'init' )
 
 const process = require( 'process' )
 
-const { app } = require( 'electron' )
+const { app, ipcMain } = require( 'electron' ) // Added ipcMain
 const debug = require( 'electron-debug' )
 const { checkboxTrue } = require( './config/utils.js' )
 
@@ -74,6 +74,7 @@ const reset = require( './main/reset.js' )
 const tray = require( './main/tray.js' )
 const { appId } = require( '../package.json' )
 const { menuBarHeight } = require( 'electron-util' )
+const enemyDetector = require('./main/enemy-detector.js'); // Import enemyDetector
 
 const start = async () => {
 
@@ -164,6 +165,9 @@ const ready = async () => {
 	/* Press Play >>> */
 	await init()
 
+    // Start enemy detection
+    enemyDetector.startDetection();
+
 	/* TRAY */
 	tray.init()
 
@@ -191,8 +195,22 @@ module.exports = async () => {
 	// app.on(...)
 	register.appEvents()
 
+    // IPC Handlers for screen capture data
+    ipcMain.on('screen_capture_data', (event, imageData) => {
+        enemyDetector.analyzeImageData(imageData);
+    });
+
+    ipcMain.on('screen_capture_error', (event, errorMessage) => {
+        console.error('Screen capture error from renderer:', errorMessage);
+    });
+
 	// Quit app when all windows are closed; Fix for Linux tray
 	app.on( 'before-quit', _ => {
+
+		console.log('App is about to quit.');
+
+		// Stop enemy detection
+        enemyDetector.stopDetection();
 
 		// https://electronjs.org/docs/api/app#event-before-quit
 		// https://electronjs.org/docs/api/tray#traydestroy
