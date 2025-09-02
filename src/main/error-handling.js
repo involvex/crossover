@@ -1,5 +1,4 @@
 const log = require( 'electron-log' )
-const unhandled = require( 'electron-unhandled' )
 const { debugInfo, openNewGitHubIssue } = require( './util' )
 
 // Const { openReportCrashDialog } = require( './dialog.js' )
@@ -18,6 +17,8 @@ const reportBody = error => `
 	${debugInfo()}`
 
 const init = async () => {
+
+    const unhandled = (await import('electron-unhandled')).default;
 
 	// unhandledRejection : This will catch any thrown errors, or non fatal errors you have successfully handled via throw.
 	// uncaughtException : This only catches fatal errors or errors that would crash your node instance

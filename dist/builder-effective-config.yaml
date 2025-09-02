@@ -1,7 +1,7 @@
 directories:
   output: dist
   buildResources: build
-appId: com.lacymorrow.crossover
+appId: involvex.crossover
 artifactName: ${productName}-${version}-${arch}.${ext}
 copyright: Copyright © Lacy Morrow
 publish: github
@@ -60,4 +60,4 @@ appx:
   publisherDisplayName: Fly5
   showNameOnTiles: true
 files: []
-electronVersion: 11.5.0
+electronVersion: 25.9.8

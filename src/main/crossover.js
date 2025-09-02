@@ -196,6 +196,7 @@ const registerKeyboardShortcuts = () => {
 // Allows dragging and setting options
 const lockWindow = ( lock, targetWindow = windows.win ) => {
 
+	log.info( `lockWindow called with lock: ${lock}` )
 	log.info( `Locked: ${lock}` )
 
 	/* Actions */

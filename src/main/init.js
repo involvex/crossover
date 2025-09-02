@@ -66,6 +66,7 @@ const init = async options => {
 		crossover.registerKeyboardShortcuts()
 
 		// Show or hide window
+		log.info(`preferences.value('hidden.locked'): ${preferences.value('hidden.locked')}`);
 		crossover.lockWindow( preferences.value( 'hidden.locked' ) )
 
 		

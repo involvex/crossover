@@ -1,17 +1,14 @@
 // Via https://github.com/reZach/secure-electron-template
-const {
-	contextBridge,
-	ipcRenderer,
-} = require( 'electron' )
-const unhandled = require( 'electron-unhandled' )
+console.log('--- preload.js: START ---');
+const electron = require('electron');
+const { contextBridge, ipcRenderer, desktopCapturer } = electron;
+
 const config = require( '../config/config.js' )
 const { debounce } = require( '../config/utils.js' )
 const { play: playSound, preload: preloadSounds } = require( './lib/sounds.js' )
 
 // Require the screen capture script to ensure its IPC listeners are set up
-require('./screen-capture.js');
 
-// Console.log( 'contextBridge:', contextBridge.internalContextBridge, contextBridge.internalContextBridge.contextIsolationEnabled )
 
 const api = {
 	test: 'test',
@@ -21,7 +18,8 @@ const api = {
 	isWindows: navigator.userAgent.indexOf( 'Win' ) !== -1,
 	playSound,
 	preloadSounds,
-	unhandled,
+	desktopCapturer,
+
 	send( channel, ...args ) {
 
 		// Whitelist channels
@@ -62,45 +60,7 @@ const api = {
 
 	},
 
-	// invoke( channel, arg ) {
-
-	// 	const validChannels = new Set( [
-	// 		'invoke_test', 'get_bounds', 'play_sound',
-	// 	] )
-
-	// 	if ( validChannels.has( channel ) ) {
-
-	// 		ipcRenderer.invoke( channel, arg )
-
-	// 	} else {
-
-	// 		console.warn( `Renderer refused to invoke IPC message on ${channel}` )
-
-	// 	}
-
-	// },
-
 }
 
-// Spectron issue: https://github.com/electron-userland/spectron/issues/693
-// if ( contextBridge.internalContextBridge && contextBridge.internalContextBridge.contextIsolationEnabled ) {
-
-// 	/**
-//      * The "Main World" is the JavaScript context that your main renderer code runs in.
-//      * By default, the page you load in your renderer executes code in this world.
-//      *
-//      * @see https://www.electronjs.org/docs/api/context-bridge
-//      */
-// 	contextBridge.exposeInMainWorld( 'crossover', api )
-
-// } else {
-
-// 	// DeepFreeze from https://github.com/electron-userland/spectron/issues/693#issuecomment-748482545
-// 	window.crossover = deepFreeze( api )
-// 	window.testing = true
-// 	// Github.com/electron-userland/spectron#node-integration
-// 	// window.electronRequire = require
-
-// }
-
 contextBridge.exposeInMainWorld( 'crossover', api )
+console.log('--- preload.js: END ---');

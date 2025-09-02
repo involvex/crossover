@@ -57,9 +57,13 @@ console.time( 'init' )
 
 const process = require( 'process' )
 
-const { app, ipcMain } = require( 'electron' ) // Added ipcMain
-const debug = require( 'electron-debug' )
+const electron = require('electron');
+const app = electron.app;
+const ipcMain = electron.ipcMain;
+
 const { checkboxTrue } = require( './config/utils.js' )
+
+
 
 const { is } = require( './main/util' )
 const errorHandling = require( './main/error-handling.js' )
@@ -73,7 +77,7 @@ const init = require( './main/init.js' )
 const reset = require( './main/reset.js' )
 const tray = require( './main/tray.js' )
 const { appId } = require( '../package.json' )
-const { menuBarHeight } = require( 'electron-util' )
+
 const enemyDetector = require('./main/enemy-detector.js'); // Import enemyDetector
 
 const start = async () => {
@@ -99,6 +103,7 @@ const start = async () => {
 	app.setAppUserModelId( appId )
 
 	// Debug Settings
+	const debug = (await import('electron-debug')).default;
 	debug( {
 		showDevTools: is.development && !is.linux,
 		devToolsMode: 'undocked',
@@ -165,8 +170,10 @@ const ready = async () => {
 	/* Press Play >>> */
 	await init()
 
-    // Start enemy detection
-    enemyDetector.startDetection();
+    	// Start enemy detection
+    if (preferences.value('crosshair.detectionMode') !== 'off') {
+        enemyDetector.startDetection();
+    }
 
 	/* TRAY */
 	tray.init()

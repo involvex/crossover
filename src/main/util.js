@@ -1,5 +1,6 @@
 const { app, BrowserWindow, os, screen, shell } = require( 'electron' )
-const isDev = require( 'electron-is-dev' )
+const log = require( './log' )
+
 const { productName } = require( '../../package.json' )
 
 const { electronVersion } = process.versions.electron || '0.0.0'
@@ -19,7 +20,7 @@ const is = {
 	windows: process.platform === 'win32',
 	main: process.type === 'browser',
 	renderer: process.type === 'renderer',
-	development: isDev,
+	development: process.env.NODE_ENV === 'development',
 	macAppStore: process.mas === true,
 	windowsStore: process.windowsStore === true,
 }
@@ -31,7 +32,7 @@ const getWindowBoundsCentered = options => {
 		...options,
 	}
 
-	const currentDisplay = screen.getDisplayNearestPoint( screen.getCursorScreenPoint() )
+	const currentDisplay = screen.getPrimaryDisplay()
 	const [ width, height ] = options.window.getSize()
 	const windowSize = options.size || { width, height }
 	const screenSize = options.useFullBounds
@@ -57,7 +58,10 @@ const centerWindow = options => {
 		...options,
 	}
 
+	log.info(`activeWindow(): ${options.window ? options.window.id : 'null'}`);
+
 	const bounds = getWindowBoundsCentered( options )
+	log.info(`Calculated bounds: ${JSON.stringify(bounds)}`);
 	options.window.setBounds( bounds, options.animated )
 
 }

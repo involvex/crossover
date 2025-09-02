@@ -14,12 +14,16 @@ const helpers = require( './helpers.js' )
 // Will return current window if exists
 const init = async options => {
 
+	log.info( 'windows.init called.', { windowsWin: windows.win } )
+
 	if ( windows.win ) {
 
+		log.info( 'windows.win already exists. Returning existing instance.' )
 		return windows.win
 
 	}
 
+	log.info( 'Creating new windows.win.' )
 	// or create(); await load()
 	windows.win = await windows.create( options ).load()
 
