@@ -1,2 +1,4 @@
 
 crossover-reclone/
+node_module/*/**
+node_modules
