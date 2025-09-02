@@ -1,1 +1,1 @@
-import("./src/main.mjs");
+import( './src/main.mjs' )

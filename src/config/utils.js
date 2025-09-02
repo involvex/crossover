@@ -25,7 +25,8 @@ const debounce = ( func, delay = DEBOUNCE_DELAY ) => {
 }
 
 // checkboxTrue( preferences.value( 'actions.followMouse' ), 'followMouse' )
-const checkboxTrue = ( value, key ) => ( typeof value === 'object' && value.includes( key ) )
+const checkboxTrue = ( value, key ) =>
+	typeof value === 'object' && value.includes( key )
 
 /**
  * Check for libappindicator1 support before creating tray icon
@@ -65,10 +66,12 @@ const deepFreeze = o => {
 
 	for ( const prop of Object.getOwnPropertyNames( o ) ) {
 
-		if ( o.hasOwnProperty( prop )
+		if (
+			o.hasOwnProperty( prop )
 			&& o[prop] !== null
 			&& ( typeof o[prop] === 'object' || typeof o[prop] === 'function' )
-			&& !Object.isFrozen( o[prop] ) ) {
+			&& !Object.isFrozen( o[prop] )
+		) {
 
 			deepFreeze( o[prop] )
 
@@ -98,7 +101,9 @@ const hexToRgbA = ( hex, alpha ) => {
 
 		return `rgba(${[
 			( c >> 16 ) & 255, ( c >> 8 ) & 255, c & 255,
-		].join( ',' )}, ${alpha})`
+		].join(
+			',',
+		)}, ${alpha})`
 
 	}
 

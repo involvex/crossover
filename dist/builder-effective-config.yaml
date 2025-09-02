@@ -2,8 +2,14 @@ directories:
   output: dist
   buildResources: build
 appId: involvex.crossover
+electronVersion: 25.0.0
+files:
+  - filter:
+      - '**/*'
+      - '!node_modules/@nodert-win10-au/**'
+      - '!node_modules/fsevents/**'
 artifactName: ${productName}-${version}-${arch}.${ext}
-copyright: Copyright © Lacy Morrow
+copyright: 'Copyright © involvex '
 publish: github
 mac:
   category: public.app-category.utilities
@@ -45,7 +51,7 @@ win:
   publish: github
   verifyUpdateCodeSignature: false
 portable:
-  unicode: false
+  unicode: true
   artifactName: ${productName}-Portable-${version}.${ext}
 nsis:
   unicode: false
@@ -59,5 +65,3 @@ appx:
   publisher: CN=C53C0091-1EEB-40B4-8537-082E06A4D328
   publisherDisplayName: Fly5
   showNameOnTiles: true
-files: []
-electronVersion: 25.9.8

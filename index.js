@@ -2,7 +2,11 @@ const process = require( 'process' )
 const { version } = require( './package.json' )
 
 // CLI version
-const args = new Set( process.argv.filter( ( element, i ) => ( ( i > 0 && i < 4 ) && String( element ).toLowerCase() ) ) )
+const args = new Set(
+	process.argv.filter(
+		( element, i ) => i > 0 && i < 4 && String( element ).toLowerCase(),
+	),
+)
 
 if ( args.has( '--version' ) || args.has( '-v' ) ) {
 

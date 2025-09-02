@@ -31,7 +31,7 @@ const browserWindowOverrides = {
  */
 const getDefaults = () => ( {
 	crosshair: {
-		crosshair: '../static/crosshairs/Actual/leupold-dot.png',
+		crosshair: '../static/crosshairs/Custom/custom_crosshair.svg',
 		color: '#442ac6',
 		size: 80,
 		opacity: 80,

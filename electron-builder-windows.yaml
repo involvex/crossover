@@ -1,4 +1,6 @@
 win:
+  backgroundColor: '#FFFFFF'
+  transparent: false
   target:
     - target: nsis
       arch:

@@ -125,7 +125,7 @@
 		}
 
 		// Text replacement on first group'
-		title.textContent = ( label === 'Actual' ) ? 'Real Crosshairs' : label
+		title.textContent = label === 'Actual' ? 'Real Crosshairs' : label
 		title.classList.add( 'group-label' )
 
 		chooserElement.append( title )
@@ -155,53 +155,76 @@
 
 	// Drag and drop Custom Image
 	let eventCounter = 0 // I kind of hate this but it works
-	document.addEventListener( 'dragenter', event => {
+	document.addEventListener(
+		'dragenter',
+		event => {
 
-		event.preventDefault()
+			event.preventDefault()
 
-		// Highlight potential drop target when the draggable element enters it
-		eventCounter++
-		containerElement.classList.add( 'dropping' )
+			// Highlight potential drop target when the draggable element enters it
+			eventCounter++
+			containerElement.classList.add( 'dropping' )
 
-	}, false )
+		},
+		false,
+	)
 	// For drop events to fire, must cancel dragover and dragleave events
-	document.addEventListener( 'dragover', event => {
+	document.addEventListener(
+		'dragover',
+		event => {
 
-		event.preventDefault()
-		containerElement.classList.add( 'dropping' )
+			event.preventDefault()
+			containerElement.classList.add( 'dropping' )
 
-	}, false )
+		},
+		false,
+	)
 
-	document.addEventListener( 'dragleave', event => {
+	document.addEventListener(
+		'dragleave',
+		event => {
 
-		event.preventDefault()
-		eventCounter--
-		if ( eventCounter === 0 || window.crossover.isMacOs ) {
+			event.preventDefault()
+			eventCounter--
+			if ( eventCounter === 0 || window.crossover.isMacOs ) {
 
+				containerElement.classList.remove( 'dropping' )
+
+			}
+
+		},
+		false,
+	)
+
+	document.addEventListener(
+		'dragend',
+		event => {
+
+			event.preventDefault()
+			eventCounter = 0
 			containerElement.classList.remove( 'dropping' )
 
-		}
+		},
+		false,
+	)
 
-	}, false )
+	document.addEventListener(
+		'drop',
+		event => {
 
-	document.addEventListener( 'dragend', event => {
+			event.preventDefault()
+			eventCounter = 0
+			containerElement.classList.remove( 'dropping' )
 
-		event.preventDefault()
-		eventCounter = 0
-		containerElement.classList.remove( 'dropping' )
+			// Send file path to main
+			window.crossover.send(
+				'save_custom_image',
+				event.dataTransfer.files[0].path,
+			)
 
-	}, false )
-
-	document.addEventListener( 'drop', event => {
-
-		event.preventDefault()
-		eventCounter = 0
-		containerElement.classList.remove( 'dropping' )
-
-		// Send file path to main
-		window.crossover.send( 'save_custom_image', event.dataTransfer.files[0].path )
-
-	}, false )
+		},
+		false,
+	)
 
 	setTimeout( () => {
 

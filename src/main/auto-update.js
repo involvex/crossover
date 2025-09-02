@@ -21,7 +21,13 @@ const onDownloadProgress = progressObject => {
 
 		let message = 'Download speed: ' + progressObject.bytesPerSecond
 		message = message + ' - Downloaded ' + progressObject.percent + '%'
-		message = message + ' (' + progressObject.transferred + '/' + progressObject.total + ')'
+		message
+			= message
+			+ ' ('
+			+ progressObject.transferred
+			+ '/'
+			+ progressObject.total
+			+ ')'
 		log.info( message )
 
 		// Dock progress bar
@@ -67,7 +73,10 @@ const onUpdateDownloaded = () => {
 
 		windows.setProgress( -1 )
 		dock.setBadge( '!' )
-		notification( { title: 'CrossOver has been Updated', body: 'Relaunch to take effect' } )
+		notification( {
+			title: 'CrossOver has been Updated',
+			body: 'Relaunch to take effect',
+		} )
 		// sound.play( 'DONE' ) // uncomment if we make notification silent
 
 	} catch ( error ) {

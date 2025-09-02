@@ -9,6 +9,14 @@ const __renderer = path.join( __src, 'renderer' )
 const __static = path.join( __src, 'static' )
 const __crosshairs = path.join( __static, 'crosshairs' )
 
-const paths = { __app, __build, __crosshairs, __src, __static, __main, __renderer }
+const paths = {
+	__app,
+	__build,
+	__crosshairs,
+	__src,
+	__static,
+	__main,
+	__renderer,
+}
 
 module.exports = paths

@@ -3,8 +3,7 @@ name: Something else
 about: Report an issue or ask a question
 title: "[ISSUE]"
 labels: Discussion
-assignees: ''
-
+assignees: ""
 ---
 
 <!-- What do you need help with? -->

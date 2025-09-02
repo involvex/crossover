@@ -1,0 +1,21 @@
+
+> Crossoverplusplus@3.4.5 build:electron
+> .\node_modules\.bin\electron-builder --win --x64
+
+  ÔÇó electron-builder  version=26.0.12 os=10.0.26100
+  ÔÇó loaded configuration  file=package.json ("build" field)
+  ÔÇó executing @electron/rebuild  electronVersion=25.0.0 arch=x64 buildFromSource=false appDir=./
+  ÔÇó installing native dependencies  arch=x64
+  ÔÇó preparing       moduleName=uiohook-napi arch=x64
+  ÔÇó finished        moduleName=uiohook-napi arch=x64
+  ÔÇó completed installing native dependencies
+  ÔÇó packaging       platform=win32 arch=x64 electron=25.0.0 appOutDir=dist\win-unpacked
+  ÔÇó updating asar integrity executable resource  executablePath=dist\win-unpacked\CrossOver++.exe
+  ÔÇó signing with signtool.exe  path=dist\win-unpacked\CrossOver++.exe
+  ÔÇó building        target=nsis file=dist\CrossOver++-3.4.5.exe archs=x64 oneClick=true perMachine=false
+  ÔÇó signing with signtool.exe  path=dist\win-unpacked\resources\elevate.exe
+  ÔÇó signing with signtool.exe  path=dist\__uninstaller-nsis-Crossoverplusplus.exe
+  ÔÇó signing with signtool.exe  path=dist\CrossOver++-3.4.5.exe
+  ÔÇó building block map  blockMapFile=dist\CrossOver++-3.4.5.exe.blockmap
+  ÔÇó building        target=portable file=dist\CrossOver++-Portable-3.4.5.exe archs=x64
+  ÔÇó signing with signtool.exe  path=dist\CrossOver++-Portable-3.4.5.exe

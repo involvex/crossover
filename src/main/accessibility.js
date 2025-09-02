@@ -76,8 +76,10 @@ const requestAccessibilityPermissions = async () => {
 				const result = await dialog.showMessageBox( {
 					type: 'info',
 					title: 'Accessibility Permission Required',
-					message: 'CrossOver needs accessibility permissions to capture mouse and keyboard events.',
-					detail: 'This allows features like:\n• Mouse follow mode\n• Hide crosshair on mouse/key press\n• Resize crosshair when aiming\n• Tilt crosshair controls\n\nClick "Open System Preferences" to grant permissions, then restart CrossOver.',
+					message:
+						'CrossOver needs accessibility permissions to capture mouse and keyboard events.',
+					detail:
+						'This allows features like:\n• Mouse follow mode\n• Hide crosshair on mouse/key press\n• Resize crosshair when aiming\n• Tilt crosshair controls\n\nClick "Open System Preferences" to grant permissions, then restart CrossOver.',
 					buttons: [
 						'Open System Preferences', 'Skip for Now', 'Quit',
 					],
@@ -94,7 +96,9 @@ const requestAccessibilityPermissions = async () => {
 					// Also open System Preferences directly to the right pane
 					try {
 
-						await shell.openExternal( 'x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility' )
+						await shell.openExternal(
+							'x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility',
+						)
 
 					} catch ( error ) {
 
@@ -110,8 +114,10 @@ const requestAccessibilityPermissions = async () => {
 							const followUpResult = await dialog.showMessageBox( {
 								type: 'question',
 								title: 'Restart Required',
-								message: 'After granting accessibility permissions in System Preferences, CrossOver needs to restart.',
-								detail: 'Have you granted accessibility permissions to CrossOver?',
+								message:
+										'After granting accessibility permissions in System Preferences, CrossOver needs to restart.',
+								detail:
+										'Have you granted accessibility permissions to CrossOver?',
 								buttons: [ 'Restart Now', 'I\'ll Restart Later' ],
 								defaultId: 0,
 							} )
@@ -190,7 +196,8 @@ const showAccessibilityDisabledNotification = () => {
 /**
  * Check if we should skip accessibility checks (user chose to skip)
  */
-const shouldSkipAccessibilityCheck = () => preferences.value( 'hidden.accessibilitySkipped' ) === true
+const shouldSkipAccessibilityCheck = () =>
+	preferences.value( 'hidden.accessibilitySkipped' ) === true
 
 /**
  * Reset accessibility preferences (for settings reset)

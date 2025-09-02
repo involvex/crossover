@@ -1,5 +1,15 @@
 const { expect, test } = require( '@playwright/test' )
-const { closeApp, startApp, visualMouse, wait, delays, focusedMinimizedVisible, CHOOSER_WINDOW, SETTINGS_WINDOW, getBounds } = require( './helpers.js' )
+const {
+	closeApp,
+	startApp,
+	visualMouse,
+	wait,
+	delays,
+	focusedMinimizedVisible,
+	CHOOSER_WINDOW,
+	SETTINGS_WINDOW,
+	getBounds,
+} = require( './helpers.js' )
 const { productName } = require( '../package.json' )
 
 let electronApp
@@ -101,7 +111,10 @@ test( 'Validate buttons: chooser button', async () => {
 
 	await wait( delays.short )
 
-	const { focused, minimized, visible } = await focusedMinimizedVisible( { electronApp, windowName: CHOOSER_WINDOW } )
+	const { focused, minimized, visible } = await focusedMinimizedVisible( {
+		electronApp,
+		windowName: CHOOSER_WINDOW,
+	} )
 
 	expect( focused ).toBe( true )
 	expect( minimized ).toBe( false )
@@ -129,7 +142,10 @@ test( 'Validate buttons: preferences', async () => {
 
 	console.log( 'All windows:', titles )
 
-	const { focused, minimized, visible } = await focusedMinimizedVisible( { electronApp, windowName: SETTINGS_WINDOW } )
+	const { focused, minimized, visible } = await focusedMinimizedVisible( {
+		electronApp,
+		windowName: SETTINGS_WINDOW,
+	} )
 
 	expect( focused ).toBe( true )
 	expect( minimized ).toBe( false )
@@ -146,7 +162,9 @@ test( 'Validate buttons: close button', async () => {
 
 		// Close button is hidden on mac - show it
 		console.log( 'MacOS, skipping close button test' )
-		await mainPage.addScriptTag( { content: 'document.body.classList.remove(\'mac\')' } )
+		await mainPage.addScriptTag( {
+			content: 'document.body.classList.remove(\'mac\')',
+		} )
 
 	}
 

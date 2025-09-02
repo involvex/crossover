@@ -66,10 +66,11 @@ test( 'Validate windows', async () => {
 
 test( 'Check isPackaged', async () => {
 
-	const isPackaged = await electronApp.evaluate( async ( { app } ) =>
-		// This runs in Electron's main process, parameter here is always
-		// the result of the require('electron') in the main app script.
-		app.isPackaged,
+	const isPackaged = await electronApp.evaluate(
+		async ( { app } ) =>
+			// This runs in Electron's main process, parameter here is always
+			// the result of the require('electron') in the main app script.
+			app.isPackaged,
 	)
 	console.log( `Packaged: ${isPackaged}` ) // False (because we're in development mode)
 
@@ -77,7 +78,9 @@ test( 'Check isPackaged', async () => {
 
 test( 'Validate appPath', async () => {
 
-	const appPath = await electronApp.evaluate( async ( { app } ) => app.getAppPath() )
+	const appPath = await electronApp.evaluate( async ( { app } ) =>
+		app.getAppPath(),
+	)
 	expect( appPath ).toBe( path.resolve( __dirname, '..' ) )
 
 } )
@@ -85,7 +88,12 @@ test( 'Validate appPath', async () => {
 test( 'Validate evaluateHandle', async () => {
 
 	const appHandle = await electronApp.evaluateHandle( ( { app } ) => app )
-	expect( await electronApp.evaluate( ( { app }, appHandle ) => app === appHandle, appHandle ) ).toBeTruthy()
+	expect(
+		await electronApp.evaluate(
+			( { app }, appHandle ) => app === appHandle,
+			appHandle,
+		),
+	).toBeTruthy()
 
 } )
 

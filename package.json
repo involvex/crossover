@@ -2,12 +2,12 @@
 	"name": "Crossoverplusplus",
 	"productName": "CrossOver++",
 	"appId": "involvex.crossover",
-	"version": "3.4.5",
+	"version": "3.4.6",
 	"description": "A Crosshair Overlay for any screen",
 	"type": "commonjs",
-	"copyright": "Copyright © Lacy Morrow",
+	"copyright": "Copyright © involvex",
 	"repository": "involvex/crossover",
-	"homepage": "https://github.com/involvex",
+	"homepage": "https://github.com/involvex/crossover",
 	"company": "Fly5",
 	"author": {
 		"name": "involvex",
@@ -40,7 +40,8 @@
 		"release": "np --no-tests --branch release",
 		"release:snap": "snapcraft upload --release=CrossOver*.snap",
 		"pack": "rm -f *.tgz && electron-builder --dir",
-		"build": "npm run depcheck && electron-builder --win --x64",
+		"build:depcheck": "npm run check:deps && npm run check:circular",
+		"build": ".\\node_modules\\.bin\\electron-builder --win --x64",
 		"build:all": "electron-builder -wl --ia32 --x64",
 		"build:mac": "electron-builder --macos --arm64 --x64",
 		"build:linux": "electron-builder --linux --ia32 --x64",
@@ -73,7 +74,6 @@
 		"uiohook-napi": "^1.5.4"
 	},
 	"optionalDependencies": {
-		"electron-winstore-auto-launch": "^2.0.6"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.23.2",
@@ -82,7 +82,7 @@
 		"axe-playwright": "^1.2.3",
 		"bindings": "^1.5.0",
 		"depcheck": "^1.4.7",
-		"electron": "^25.0.0",
+		"electron": "^37.4.0",
 		"electron-builder": "^26.0.12",
 		"electron-builder-squirrel-windows": "^24.8.0",
 		"eslint": "^8.52.0",
@@ -91,7 +91,7 @@
 		"jimp": "^0.22.10",
 		"madge": "^6.1.0",
 		"nodemon": "^3.0.1",
-		"np": "^2.16.1",
+		"np": "^10.2.0",
 		"playwright": "^1.39.0",
 		"sass": "^1.69.5"
 	},
@@ -101,8 +101,14 @@
 	},
 	"build": {
 		"appId": "involvex.crossover",
+		"electronVersion": "25.0.0",
+		"files": [
+			"**/*",
+			"!node_modules/@nodert-win10-au/**",
+			"!node_modules/fsevents/**"
+		],
 		"artifactName": "${productName}-${version}-${arch}.${ext}",
-		"copyright": "Copyright © Lacy Morrow",
+		"copyright": "Copyright © involvex ",
 		"publish": "github",
 		"mac": {
 			"category": "public.app-category.utilities",
@@ -162,7 +168,7 @@
 			"verifyUpdateCodeSignature": false
 		},
 		"portable": {
-			"unicode": false,
+			"unicode": true,
 			"artifactName": "${productName}-Portable-${version}.${ext}"
 		},
 		"nsis": {

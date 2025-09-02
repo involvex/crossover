@@ -10,7 +10,13 @@
 
 const { expect, test } = require( '@playwright/test' )
 const { productName } = require( '../package.json' )
-const { closeApp, startApp, wait, delays, focusedMinimizedVisible } = require( './helpers.js' )
+const {
+	closeApp,
+	startApp,
+	wait,
+	delays,
+	focusedMinimizedVisible,
+} = require( './helpers.js' )
 // Breakpoint: await mainPage.pause()
 
 let electronApp
@@ -41,7 +47,10 @@ test( 'Validate app launches: launch.png', async () => {
 	expect( title ).toBe( productName )
 
 	// App properties - focused, minimized, visible
-	const { focused, minimized, visible } = await focusedMinimizedVisible( { electronApp, windowName: productName } )
+	const { focused, minimized, visible } = await focusedMinimizedVisible( {
+		electronApp,
+		windowName: productName,
+	} )
 
 	expect( focused ).toBe( true )
 	expect( minimized ).toBe( false )

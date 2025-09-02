@@ -37,7 +37,11 @@ test( 'Test get mainWindow', async () => {
 
 	await wait( delays.short )
 
-	const result = await electronApp.evaluate( async ( { BrowserWindow }, windowName ) => BrowserWindow.getAllWindows().find( w => w.title === windowName ).title, productName )
+	const result = await electronApp.evaluate(
+		async ( { BrowserWindow }, windowName ) =>
+			BrowserWindow.getAllWindows().find( w => w.title === windowName ).title,
+		productName,
+	)
 
 	expect( result, 'should be productName' ).toBe( productName )
 
@@ -51,7 +55,9 @@ test( 'Test playwright input', async () => {
 
 test( 'Test script', async () => {
 
-	await mainPage.addScriptTag( { content: '(() => console.log(\'Added script tag.\'))()' } )
+	await mainPage.addScriptTag( {
+		content: '(() => console.log(\'Added script tag.\'))()',
+	} )
 
 } )
 

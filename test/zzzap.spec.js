@@ -17,4 +17,3 @@ test( 'Play sound', async () => {
 	await app.electronApp.close()
 
 } )
-

@@ -6,7 +6,10 @@ const { __static } = require( './paths' )
 
 const preload = () => {
 
-	windows.win?.webContents.send( 'preload_sounds', path.join( __static, 'sounds' ) + path.sep )
+	windows.win?.webContents.send(
+		'preload_sounds',
+		path.join( __static, 'sounds' ) + path.sep,
+	)
 
 }
 

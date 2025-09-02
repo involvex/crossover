@@ -11,7 +11,10 @@ if ( process.platform === 'win32' ) {
 
 	} catch ( error ) {
 
-		console.log( 'Windows Store Auto Launch package not available:', error.message )
+		console.log(
+			'Windows Store Auto Launch package not available:',
+			error.message,
+		)
 
 	}
 
@@ -65,7 +68,10 @@ const disable = () => {
 
 		} catch ( error ) {
 
-			console.log( 'Failed to disable Windows Store auto-launch:', error.message )
+			console.log(
+				'Failed to disable Windows Store auto-launch:',
+				error.message,
+			)
 
 		}
 
@@ -99,7 +105,10 @@ const getStatus = () => {
 
 		} catch ( error ) {
 
-			console.log( 'Failed to get Windows Store auto-launch status:', error.message )
+			console.log(
+				'Failed to get Windows Store auto-launch status:',
+				error.message,
+			)
 
 			return false
 

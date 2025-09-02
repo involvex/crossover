@@ -8,7 +8,8 @@ const APP_WIDTH = 208
 
 const DEFAULT_DEBOUNCE = 20
 const DEFAULT_THEME = 'light'
-const ALERT_URL = 'https://raw.githubusercontent.com/lacymorrow/crossover/master/CROSSOVER_ALERT'
+const ALERT_URL
+	= 'https://raw.githubusercontent.com/lacymorrow/crossover/master/CROSSOVER_ALERT'
 const HOMEPAGE_URL = 'https://lacymorrow.github.io/crossover'
 const RELEASES_URL = 'https://github.com/lacymorrow/crossover/releases/latest'
 const APP_ASPECT_RATIO = 16 / 10
@@ -23,7 +24,16 @@ const SHADOW_WINDOW_OFFSET = 40
 const DEBOUNCE_DELAY = 200
 
 const SUPPORTED_IMAGE_FILE_TYPES = [
-	'bmp', 'gif', 'jpg', 'jpeg', 'jfif', 'jfi', 'jif', 'png', 'svg', 'webp',
+	'bmp',
+	'gif',
+	'jpg',
+	'jpeg',
+	'jfif',
+	'jfi',
+	'jif',
+	'png',
+	'svg',
+	'webp',
 ]
 
 const FILE_FILTERS = [

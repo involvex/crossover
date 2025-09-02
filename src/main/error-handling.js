@@ -8,35 +8,38 @@ const reportBody = error => `
 
 
 	---
-	${error && `
+	${
+	error
+		&& `
 	${error}:
 	${error.stack}
 
-	---`}
+	---`
+}
 
 	${debugInfo()}`
 
 const init = async () => {
 
-    const unhandled = (await import('electron-unhandled')).default;
+	// const unhandled = ( await import( 'electron-unhandled/index.js' ) ).default
 
 	// unhandledRejection : This will catch any thrown errors, or non fatal errors you have successfully handled via throw.
 	// uncaughtException : This only catches fatal errors or errors that would crash your node instance
 
 	// Report unhandled errors
-	await unhandled( {
-		showDialog: false, // default: only in production
-		logger: log.warn,
-		reportButton( error ) {
+	// await unhandled( {
+	// 	showDialog: false, // default: only in production
+	// 	logger: log.warn,
+	// 	reportButton( error ) {
 
-			openNewGitHubIssue( {
-				user: 'lacymorrow',
-				repo: 'crossover',
-				body: reportBody( error ),
-			} )
+	// 		openNewGitHubIssue( {
+	// 			user: 'lacymorrow',
+	// 			repo: 'crossover',
+	// 			body: reportBody( error ),
+	// 		} )
 
-		},
-	} )
+	// 	},
+	// } )
 
 	// log.catchErrors( {
 	// 	showDialog: true,

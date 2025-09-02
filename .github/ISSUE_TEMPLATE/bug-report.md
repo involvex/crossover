@@ -3,8 +3,7 @@ name: Bug report
 about: Report an issue
 title: "[BUG]"
 labels: bug
-assignees: ''
-
+assignees: ""
 ---
 
 **Describe the issue**
@@ -21,11 +20,11 @@ Donations will ensure the following:
 🐛 Quick responses to bug reports and help requests
  -->
 
-
 **To Reproduce**
 
 **Screenshots**
 
 **Versions (please complete the following information):**
- - OS: [e.g. Windows 10]
- - CrossOver Version [e.g. 3.2.0]
+
+- OS: [e.g. Windows 10]
+- CrossOver Version [e.g. 3.2.0]

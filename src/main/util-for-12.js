@@ -6,7 +6,8 @@ const { electronVersion } = process.versions.electron || '0.0.0'
 
 const activeWindow = () => BrowserWindow.getFocusedWindow()
 
-const debugInfo = () => `
+const debugInfo = () =>
+	`
 ${api.app.getName()} ${api.app.getVersion()}
 Electron ${electronVersion}
 ${process.platform} ${os.release()}
@@ -31,14 +32,20 @@ const getWindowBoundsCentered = options => {
 		...options,
 	}
 
-	const currentDisplay = api.screen.getDisplayNearestPoint( api.screen.getCursorScreenPoint() )
+	const currentDisplay = api.screen.getDisplayNearestPoint(
+		api.screen.getCursorScreenPoint(),
+	)
 	const [ width, height ] = options.window.getSize()
 	const windowSize = options.size || { width, height }
 	const screenSize = options.useFullBounds
 		? currentDisplay.bounds
 		: currentDisplay.workArea
-	const x = Math.floor( screenSize.x + ( ( screenSize.width / 2 ) - ( windowSize.width / 2 ) ) )
-	const y = Math.floor( ( ( screenSize.height + screenSize.y ) / 2 ) - ( windowSize.height / 2 ) )
+	const x = Math.floor(
+		screenSize.x + ( screenSize.width / 2 - windowSize.width / 2 ),
+	)
+	const y = Math.floor(
+		( screenSize.height + screenSize.y ) / 2 - windowSize.height / 2,
+	)
 
 	return {
 		x,
@@ -75,7 +82,9 @@ const newGithubIssueUrl = ( options = {} ) => {
 
 	} else {
 
-		throw new Error( 'You need to specify either the `repoUrl` option or both the `user` and `repo` options' )
+		throw new Error(
+			'You need to specify either the `repoUrl` option or both the `user` and `repo` options',
+		)
 
 	}
 
@@ -208,7 +217,8 @@ const showAboutWindow = ( options = {} ) => {
 
 	if ( options.text ) {
 
-		aboutPanelOptions.copyright = ( options.copyright || '' ) + '\n\n' + options.text
+		aboutPanelOptions.copyright
+			= ( options.copyright || '' ) + '\n\n' + options.text
 
 	}
 

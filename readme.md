@@ -25,10 +25,10 @@
 
 ### [Download CrossOver for Windows](https://github.com/lacymorrow/crossover/releases/latest/download/CrossOver.exe)
 
-
 ##### [All Downloads (Mac, Linux, Windows)](https://github.com/lacymorrow/crossover/releases/latest/)
 
 ##### To Use CrossOver: <kbd>Control</kbd>-<kbd>Alt</kbd>-<kbd>Shift</kbd>-<kbd>X</kbd>
+
 ###### Mac: <kbd>Control</kbd>-<kbd>Option</kbd>-<kbd>Shift</kbd>-<kbd>X</kbd>
 
 CrossOver allows you to place a customizable crosshair overlay above any application window.
@@ -37,7 +37,6 @@ Improve your aim and gain a competitive advantage with a permanent colored cross
 <p align="center">
   <img src="https://github.com/lacymorrow/crossover/raw/main/src/static/meta/demo-main.png"/>
 </p>
-
 
 # Documentation
 
@@ -74,6 +73,7 @@ Download the `dmg` or `zip` file for your architecture:
 ### Linux
 
 We offer the following formats:
+
 - `AppImage`
 - `apk`
 - `deb`
@@ -84,7 +84,6 @@ We offer the following formats:
 Or download from the Snap Store
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/crossover)
-
 
 # Quick Start
 
@@ -109,7 +108,7 @@ Or download from the Snap Store
 
 # Features
 
-- Not bannable <sup>* [[79]](https://github.com/lacymorrow/crossover/issues/79)</sup>
+- Not bannable <sup>\* [[79]](https://github.com/lacymorrow/crossover/issues/79)</sup>
 - Fast and lightweight
 - Choose from tons of true-to-life sights
 - Cross-platform: Windows, MacOS, and Linux support
@@ -122,8 +121,7 @@ Or download from the Snap Store
 - Persistent settings remember your choices automatically
 - Automatically updates in the background to keep your features fresh _(Mac and Windows only)_
 
-<sup>* </sup> Escape from Tarkov will not work with CrossOver ([#47](https://github.com/lacymorrow/crossover/issues/47#issuecomment-987762466))
-
+<sup>\* </sup> Escape from Tarkov will not work with CrossOver ([#47](https://github.com/lacymorrow/crossover/issues/47#issuecomment-987762466))
 
 ### [Download CrossOver for Windows](https://github.com/lacymorrow/crossover/releases/latest/download/CrossOver.exe)
 
@@ -147,7 +145,6 @@ _macOS 10.10+, Linux, and Windows 7+ are supported._
 
 ##### _Because this app is Free and Open-Source, we cannot afford to sign our code. This means Chrome may warn about an untrusted download, this is normal. Click the arrow icon -> `Keep` to finish downloading. Windows Defender and Mac Gatekeeper will prevent you from running the app the first time._
 
-
 ##### Windows
 
 [**Download**](https://github.com/lacymorrow/crossover/releases/latest/download/CrossOver.exe) the `.exe` file. _**(CrossOver-Setup-x.x.x.exe)**_
@@ -156,7 +153,6 @@ _macOS 10.10+, Linux, and Windows 7+ are supported._
 
 - Click `More Info`
 - Click `Run Anyway`
-
 
 ##### Mac
 
@@ -175,7 +171,6 @@ M1 Mac security fix: (_thanks [Yoyopizzacat, #207](https://github.com/lacymorrow
 - Open your terminal and type `sudo xattr -r -d com.apple.quarantine /Applications/CrossOver.app`
 - Type in your password and now you can use CrossOver!
 
-
 ##### Linux
 
 [**Download**](https://github.com/lacymorrow/crossover/releases/latest) the file appropriate to your system. (`.AppImage`, `.apk`, `.deb`, `.freebsd`, `.pacman`, `.rpm`, `.snap`)
@@ -189,7 +184,6 @@ _Certain lightweight desktop environments may require a compositor to allow Cros
 <p align="center">
   <img src="https://github.com/lacymorrow/crossover/raw/main/src/static/meta/demo-chooser.png"/>
 </p>
-
 
 ---
 
@@ -225,7 +219,6 @@ _Certain lightweight desktop environments may require a compositor to allow Cros
 <p align="center">
   <img src="https://github.com/lacymorrow/crossover/raw/main/src/static/meta/demo-settings.png"/>
 </p>
-
 
 ---
 
@@ -287,64 +280,64 @@ To reset all settings and binds to default, press <kbd>Control</kbd>-<kbd>Alt</k
 
 ###### ❌ Most games don't work in Fullscreen mode on Windows or Linux
 
-| Works | Game                              | Notes                                                                              |
-| ----- | --------------------------------- | ---------------------------------------------------------------------------------- |
-| ✅    | Among Us                          | |
-| ✅    | Apex Legends                      | Runs in `Windowed` mode                                                            |
-| ✅    | Call of Duty Black Ops Cold War   | Runs in `Windowed`, `Windowed Fullscreen`, `Multi-Monitor` modes                   |
-| ✅    | Call of Duty: Warzone             | Runs in `Windowed` mode                                                            |
-| ✅    | Counter-Strike (1.6)              | Runs in `Windowed` mode                                                            |
-| ✅    | CS:GO / Counter-Strike: Global Offensive | Runs in `Windowed` mode; May work in `Windowed Fullscreen` and `Fullscreen` modes with AHK script |
-| ✅    | CS 2 / Counter-Strike: 2          | Runs in `Windowed` mode; Doesn't work in `Fullscreen` modes with/without AHK script |
-| ❌    | Cyberpunk 2077                    | Does not work. (Vulkan)                                                             |
-| ✅    | Dead by Daylight                  | Runs in `Windowed` and `Fullscreen` modes                                          |
-| ✅    | Deceit                            | Runs in `Windowed` mode                                                            |
-| ✅    | Destiny 2                         | Runs in `Windowed Fullscreen` mode; _Some reports of running in `Fullscreen` mode_ |
-| ✅    | Empyrion: Galactic Survival       | Runs in `Windowed` mode                                                            |
-| ❌    | Escape from Tarkov                | Users report the game will no longer start with CrossOver running ([#47](https://github.com/lacymorrow/crossover/issues/47#issuecomment-987762466))                                                      |
-| ✅    | FiveM                             | Runs in `Fullscreen` mode                                                          |
-| ✅    | Fortnite                          | Runs in `Windowed Fullscreen` mode                                                 |
-| ✅    | GTFO                              | Works in `Fullscreen window`, `Maximized window`, `Windowed mode` (Doesn't work in `Exclusive Fullscreen` window) |
-| ❌    | Hunt: Showdown                    | Works in `Windowed mode` |
-| ✅    | Killing Floor                     | Runs in `Windowed` mode                                                            |
-| ✅    | League of Legends                 | Runs in `Borderless` and `Windowed` modes                                          |
-| ✅    | Left 4 Dead 2                     | Runs in `Borderless` and `Windowed` modes                                          |
-| ✅    | Halo: The Master Chief Collection | Runs in `Borderless` and `Windowed` modes                                          |
-| ❌    | Metro Exodus Gold Edition         | Doesn't work under any circumstances                                               |
-| ✅    | Overwatch                         | Runs in `Windowed Fullscreen` mode                                                 |
-| ✅    | Phasmophobia                      | Runs in `Windowed` and `Fullscreen` modes                                          |
-| ✅    | Planetside 2                      | Runs in `Windowed` and `Windowed Fullscreen` modes                                 |
-| ❌    | Rainbow 6: Seige                  | Vulkan-based                                                                       |
-| ❌    | RedM                              | Does not work.                                                                     |
-| ✅    | Roblox                            | Runs in `Fullscreen` mode _(Windows)_ and `Windowed Fullscreen` mode _(MacOS)_     |
-| ✅    | Rocket League                     | Runs in `Windowed` mode                                                            |
-| ✅    | Rust                              | Runs in `Windowed Fullscreen` mode                                                 |
-| ❌    | Sea of Theives                    | **BANNABLE**                                                                       |
-| ✅    | Star Wars Battlefront 2           | Runs in `Borderless` mode                                                          |
-| ✅    | The Finals                        | Runs in `Borderless` and `Windowed` modes                                          |
-| ✅    | Tom Clancy's The Division 2       | Runs in `Windowed Fullscreen` mode                                                 |
-| ✅    | Tony Hawks Pro Skater 1+2         | Such a fun game!                                                                   |
-| ❌    | Vulkan-based games                | |
-| ✅    | Valorant                          | Runs in `Borderless` and `Windowed` modes                                          |
+| Works | Game                                     | Notes                                                                                                                                               |
+| ----- | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ✅    | Among Us                                 |                                                                                                                                                     |
+| ✅    | Apex Legends                             | Runs in `Windowed` mode                                                                                                                             |
+| ✅    | Call of Duty Black Ops Cold War          | Runs in `Windowed`, `Windowed Fullscreen`, `Multi-Monitor` modes                                                                                    |
+| ✅    | Call of Duty: Warzone                    | Runs in `Windowed` mode                                                                                                                             |
+| ✅    | Counter-Strike (1.6)                     | Runs in `Windowed` mode                                                                                                                             |
+| ✅    | CS:GO / Counter-Strike: Global Offensive | Runs in `Windowed` mode; May work in `Windowed Fullscreen` and `Fullscreen` modes with AHK script                                                   |
+| ✅    | CS 2 / Counter-Strike: 2                 | Runs in `Windowed` mode; Doesn't work in `Fullscreen` modes with/without AHK script                                                                 |
+| ❌    | Cyberpunk 2077                           | Does not work. (Vulkan)                                                                                                                             |
+| ✅    | Dead by Daylight                         | Runs in `Windowed` and `Fullscreen` modes                                                                                                           |
+| ✅    | Deceit                                   | Runs in `Windowed` mode                                                                                                                             |
+| ✅    | Destiny 2                                | Runs in `Windowed Fullscreen` mode; _Some reports of running in `Fullscreen` mode_                                                                  |
+| ✅    | Empyrion: Galactic Survival              | Runs in `Windowed` mode                                                                                                                             |
+| ❌    | Escape from Tarkov                       | Users report the game will no longer start with CrossOver running ([#47](https://github.com/lacymorrow/crossover/issues/47#issuecomment-987762466)) |
+| ✅    | FiveM                                    | Runs in `Fullscreen` mode                                                                                                                           |
+| ✅    | Fortnite                                 | Runs in `Windowed Fullscreen` mode                                                                                                                  |
+| ✅    | GTFO                                     | Works in `Fullscreen window`, `Maximized window`, `Windowed mode` (Doesn't work in `Exclusive Fullscreen` window)                                   |
+| ❌    | Hunt: Showdown                           | Works in `Windowed mode`                                                                                                                            |
+| ✅    | Killing Floor                            | Runs in `Windowed` mode                                                                                                                             |
+| ✅    | League of Legends                        | Runs in `Borderless` and `Windowed` modes                                                                                                           |
+| ✅    | Left 4 Dead 2                            | Runs in `Borderless` and `Windowed` modes                                                                                                           |
+| ✅    | Halo: The Master Chief Collection        | Runs in `Borderless` and `Windowed` modes                                                                                                           |
+| ❌    | Metro Exodus Gold Edition                | Doesn't work under any circumstances                                                                                                                |
+| ✅    | Overwatch                                | Runs in `Windowed Fullscreen` mode                                                                                                                  |
+| ✅    | Phasmophobia                             | Runs in `Windowed` and `Fullscreen` modes                                                                                                           |
+| ✅    | Planetside 2                             | Runs in `Windowed` and `Windowed Fullscreen` modes                                                                                                  |
+| ❌    | Rainbow 6: Seige                         | Vulkan-based                                                                                                                                        |
+| ❌    | RedM                                     | Does not work.                                                                                                                                      |
+| ✅    | Roblox                                   | Runs in `Fullscreen` mode _(Windows)_ and `Windowed Fullscreen` mode _(MacOS)_                                                                      |
+| ✅    | Rocket League                            | Runs in `Windowed` mode                                                                                                                             |
+| ✅    | Rust                                     | Runs in `Windowed Fullscreen` mode                                                                                                                  |
+| ❌    | Sea of Theives                           | **BANNABLE**                                                                                                                                        |
+| ✅    | Star Wars Battlefront 2                  | Runs in `Borderless` mode                                                                                                                           |
+| ✅    | The Finals                               | Runs in `Borderless` and `Windowed` modes                                                                                                           |
+| ✅    | Tom Clancy's The Division 2              | Runs in `Windowed Fullscreen` mode                                                                                                                  |
+| ✅    | Tony Hawks Pro Skater 1+2                | Such a fun game!                                                                                                                                    |
+| ❌    | Vulkan-based games                       |                                                                                                                                                     |
+| ✅    | Valorant                                 | Runs in `Borderless` and `Windowed` modes                                                                                                           |
 
 > Reported from our users, [add your resuts](https://github.com/lacymorrow/crossover/issues/47)
 
 #### Operating Systems
 
-| Works | OS                      | Notes                                                                                                     |
-| ----- | -------------------     | --------------------------------------------------------------------------------------------------------- |
-| ✅    | MacOS arm64 _(M1, M2)_  | You may need to run a command to un-quarantine the download, see below |
-| ✅    | MacOS x64 _(Intel)_     | Tested on Catalina 10.15.1                                                                                |
-| ✅    | Windows 11              |
-| ✅    | Windows 10 ia32         |
-| ✅    | Windows 10 x64          | Custom cursors do not show in draggable taskbar area                                                      |
-| ✅    | Windows 8               |                                                       |
-| ❓    | Windows 7               | Does not work in Windows 7 Home; Works in Windows 7 Pro [#63](https://github.com/lacymorrow/crossover/issues/63)|
-| ❓    | Arch                    | Tested in v2021.01.01                                                                                     |
-| ✅    | Elementary OS           | Tested in v5.1                                                                                            |
-| ✅    | Fedora                  | Tested in v33 (Shortcut conflicts with desktop switching)                                                 |
-| ✅    | Mint                    | Tested in v20.1                                                                                           |
-| ✅    | Ubuntu                  | Tested in v20.04.1                                                                                        |
+| Works | OS                     | Notes                                                                                                            |
+| ----- | ---------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| ✅    | MacOS arm64 _(M1, M2)_ | You may need to run a command to un-quarantine the download, see below                                           |
+| ✅    | MacOS x64 _(Intel)_    | Tested on Catalina 10.15.1                                                                                       |
+| ✅    | Windows 11             |
+| ✅    | Windows 10 ia32        |
+| ✅    | Windows 10 x64         | Custom cursors do not show in draggable taskbar area                                                             |
+| ✅    | Windows 8              |                                                                                                                  |
+| ❓    | Windows 7              | Does not work in Windows 7 Home; Works in Windows 7 Pro [#63](https://github.com/lacymorrow/crossover/issues/63) |
+| ❓    | Arch                   | Tested in v2021.01.01                                                                                            |
+| ✅    | Elementary OS          | Tested in v5.1                                                                                                   |
+| ✅    | Fedora                 | Tested in v33 (Shortcut conflicts with desktop switching)                                                        |
+| ✅    | Mint                   | Tested in v20.1                                                                                                  |
+| ✅    | Ubuntu                 | Tested in v20.04.1                                                                                               |
 
 ###### Newer MacOS' may quarantine the `CrossOver.app` package. To un-quarantine:
 
@@ -392,18 +385,15 @@ $ yarn build
 
 CI builds do not seem to work correctly for Mac. Try using a real Mac to build.
 
-
 **Test closing via the traffic lights on Mac**
 
 Calling `process.exit()` before the app is done "quitting" will cause the app to crash on Mac.
-
 
 ```
 i386 architecture deprecated in MacOS
 ```
 
 Newer versions of OSX cannot build for 32-bit apps, use CircleCI to build those.
-
 
 ```
 gyp: name 'openssl_fips' is not defined while evaluating condition 'openssl_fips != ""' in binding.gyp while trying to load binding.gyp
@@ -421,7 +411,6 @@ Exit code:
 
 To build rpm, executable rpmbuild is required, please install: `brew install rpm`
 
-
 #### Continuous Integration (CI)
 
 We use [GitHub Actions](https://github.com/lacymorrow/crossover/actions), [CircleCI](https://circleci.com/gh/lacymorrow/crossover) and [Appveyor](https://ci.appveyor.com/project/lacymorrow/crossover) to build and test CrossOver on every commit. Circle and GitHub build for all targets, Appveyor builds for Windows.
@@ -436,13 +425,11 @@ CircleCI needs the following environment variables:
 
 - ~~`SNAP_TOKEN` aka a Snapcraft API token, generated with **snapcraft v6 (NOT v7+)** using `snapcraft login` and `snapcraft export-login token.txt`~~
 
-
 To install `snapcraft` on a Mac:
 
 - You'll need Multipass: `brew install multipass --cask`
 
 - Then install snapcraft: `brew install snapcraft`
-
 
 ### Publish
 
@@ -478,7 +465,7 @@ Once in-game, pressing space should put the crosshair over the screen, even in f
 
 ### Performance Issues
 
-There are reports of stuttering when using V-SYNC, G-SYNC, or similar Adaptive Sync ([#330](https://github.com/lacymorrow/crossover/issues/330)). Disabling these may improve performance.  s
+There are reports of stuttering when using V-SYNC, G-SYNC, or similar Adaptive Sync ([#330](https://github.com/lacymorrow/crossover/issues/330)). Disabling these may improve performance. s
 
 ### Graphical issues on Linux
 
@@ -516,6 +503,7 @@ plasmashell --replace
 You can run CrossOver from the command line to see debug output. Open a terminal and navigate to the CrossOver app, run `./CrossOver` to see output:
 
 > (Mac, Linux)
+
 ```sh
 ╭─  lacymorrow in /Applications/CrossOver.app/Contents/MacOS using
 ╰─○ $ ./CrossOver --debug
@@ -544,7 +532,6 @@ _alias_ `-v`
 
 Print the app version to `stdout` (Good for CI).
 
-
 # Credits
 
 An extra big thanks to the crosshair providers, as this wouldn't be possible without them:
@@ -558,7 +545,6 @@ An extra big thanks to the crosshair providers, as this wouldn't be possible wit
 See CrossOver in the [Electron Apps library](https://www.electronjs.org/apps/crossover)
 
 Created by [Lacy Morrow](http://lacymorrow.com)
-
 
 # Support this project
 
@@ -577,4 +563,3 @@ If you would like to see specific features or improvements added to CrossOver, c
 - **ETH:** `0x5be1074a5148F8D723dE1F2Dd326e1B15c82553D`
 
 <a href="https://www.patreon.com/bePatron?u=55065733" target="_blank"><img src="https://github.com/lacymorrow/crossover/raw/main/src/static/meta/patreon-button.webp" style="height:50px;" height="50" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://opencollective.com/crossover/donate" target="_blank"><img src="https://opencollective.com/crossover/donate/button@2x.png?color=blue" style="height:50px;" height="50" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.buymeacoffee.com/lm" target="_blank"><img style="height:50px;" height="50" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" ></a>
-

@@ -1,11 +1,10 @@
-const path = require('path')
+const path = require("path");
 
 const config = {
-
 	retries: process.env.CI ? 2 : 0,
 
-	testDir: 'test',
-	outputDir: 'test/results',
+	testDir: "test",
+	outputDir: "test/results",
 
 	timeout: 10_000,
 
@@ -14,36 +13,34 @@ const config = {
 	// shard: { total: 1, current: 1 },
 
 	expect: {
-
 		toMatchSnapshot: { threshold: 0.1 },
-
 	},
 
 	projects: [
 		{
-			name: 'chromium', // We use 'chromium' here to share screenshots with chromium.
+			name: "chromium", // We use 'chromium' here to share screenshots with chromium.
 			metadata: {
 				platform: process.platform,
 				headful: true,
-				browserName: 'electron',
+				browserName: "electron",
 				channel: undefined,
-				mode: 'default',
+				mode: "default",
 				video: false,
 			},
 		},
 	],
 
 	use: {
-		browserName: 'chromium',
-		coverageName: 'electron',
+		browserName: "chromium",
+		coverageName: "electron",
 		// slowMo: 100,
 		headless: false,
 		ignoreHTTPSErrors: true,
-		screenshot: 'on',
-		trace: 'on',
-		video: 'on-first-retry',
+		screenshot: "on",
+		trace: "on",
+		video: "on-first-retry",
 		viewport: { width: 1280, height: 720 },
 	},
-}
+};
 
-export default config
+export default config;

@@ -103,11 +103,11 @@ const start = async () => {
 	app.setAppUserModelId( appId )
 
 	// Debug Settings
-	const debug = (await import('electron-debug')).default;
-	debug( {
-		showDevTools: is.development && !is.linux,
-		devToolsMode: 'undocked',
-	} )
+	// const debug = (await import('electron-debug/index.js')).default;
+	// debug( {
+	// 	showDevTools: is.development && !is.linux,
+	// 	devToolsMode: 'undocked',
+	// } )
 
 	// Electron reloader is janky sometimes
 	// try {
@@ -185,7 +185,7 @@ const ready = async () => {
 	sound.preload()
 
 	/* AUTO-UPDATE */
-	autoUpdate.update()
+		// autoUpdate.update() // This is the line to comment out
 
 	// Alert from developer
 	// alert.init()

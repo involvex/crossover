@@ -2,7 +2,12 @@ const { Menu, Tray } = require( 'electron' )
 const { is, aboutMenuItem } = require( './util' )
 const path = require( 'path' )
 const log = require( './log' )
-const { preferencesMenuItems, openCustomImageMenuItem, resetMenuItem, showAppMenuItem } = require( './menu' )
+const {
+	preferencesMenuItems,
+	openCustomImageMenuItem,
+	resetMenuItem,
+	showAppMenuItem,
+} = require( './menu' )
 const paths = require( './paths' )
 const { productName } = require( '../../package.json' )
 
@@ -26,11 +31,7 @@ const systemIcon = () => {
 
 }
 
-const getIconPath = () => path.join(
-	paths.__static,
-	'icons',
-	systemIcon(),
-)
+const getIconPath = () => path.join( paths.__static, 'icons', systemIcon() )
 
 const init = () => {
 

@@ -80,32 +80,46 @@ const closeApp = async () => {
 
 }
 
-const focusedMinimizedVisible = async ( { electronApp, windowName } ) => electronApp.evaluate( async ( { BrowserWindow }, windowName ) => {
+const focusedMinimizedVisible = async ( { electronApp, windowName } ) =>
+	electronApp.evaluate( async ( { BrowserWindow }, windowName ) => {
 
-	const windows = await BrowserWindow.getAllWindows()
-	let win = windows.find( w => w.title === windowName )
-	if ( !win ) {
-
-		// Fallback to the first available window if the requested one doesn't exist yet
-		win = windows[0]
-
+		const windows = await BrowserWindow.getAllWindows()
+		let win = windows.find( w => w.title === windowName )
 		if ( !win ) {
 
-			return { focused: false, minimized: false, visible: false }
+			// Fallback to the first available window if the requested one doesn't exist yet
+			win = windows[0]
+
+			if ( !win ) {
+
+				return { focused: false, minimized: false, visible: false }
+
+			}
+
+			console.warn(
+				`Window "${windowName}" not found, using first window instead`,
+			)
 
 		}
 
-		console.warn( `Window "${windowName}" not found, using first window instead` )
+		win.focus()
 
-	}
+		return {
+			focused: win.isFocused(),
+			minimized: win.isMinimized(),
+			visible: win.isVisible(),
+		}
 
-	win.focus()
+	}, windowName )
 
-	return { focused: win.isFocused(), minimized: win.isMinimized(), visible: win.isVisible() }
-
-}, windowName )
-
-const getBounds = async ( { electronApp, windowName } ) => electronApp.evaluate( async ( { BrowserWindow }, windowName ) => BrowserWindow.getAllWindows().filter( w => w.title === windowName )[0].getBounds(), windowName )
+const getBounds = async ( { electronApp, windowName } ) =>
+	electronApp.evaluate(
+		async ( { BrowserWindow }, windowName ) =>
+			BrowserWindow.getAllWindows()
+				.filter( w => w.title === windowName )[0]
+				.getBounds(),
+		windowName,
+	)
 
 // This injects a box into the page that moves with the mouse;
 // via https://github.com/puppeteer/puppeteer/issues/4378#issuecomment-499726973
@@ -154,25 +168,37 @@ function visualMouseCode() {
       `
 	document.head.append( styleElement )
 	document.body.append( box )
-	document.addEventListener( 'mousemove', event => {
+	document.addEventListener(
+		'mousemove',
+		event => {
 
-		box.style.left = event.pageX + 'px'
-		box.style.top = event.pageY + 'px'
-		updateButtons( event.buttons )
+			box.style.left = event.pageX + 'px'
+			box.style.top = event.pageY + 'px'
+			updateButtons( event.buttons )
 
-	}, true )
-	document.addEventListener( 'mousedown', event => {
+		},
+		true,
+	)
+	document.addEventListener(
+		'mousedown',
+		event => {
 
-		updateButtons( event.buttons )
-		box.classList.add( 'button-' + event.which )
+			updateButtons( event.buttons )
+			box.classList.add( 'button-' + event.which )
 
-	}, true )
-	document.addEventListener( 'mouseup', event => {
+		},
+		true,
+	)
+	document.addEventListener(
+		'mouseup',
+		event => {
 
-		updateButtons( event.buttons )
-		box.classList.remove( 'button-' + event.which )
+			updateButtons( event.buttons )
+			box.classList.remove( 'button-' + event.which )
 
-	}, true )
+		},
+		true,
+	)
 	function updateButtons( buttons ) {
 
 		for ( let i = 0; i < 5; i++ ) {

@@ -38,7 +38,10 @@ const position = bounds => {
 
 }
 
-const positionDebounced = debounce( bounds => position( bounds ), config.DEFAULT_DEBOUNCE || 200 )
+const positionDebounced = debounce(
+	bounds => position( bounds ),
+	config.DEFAULT_DEBOUNCE || 200,
+)
 
 const save = { crosshair, position: positionDebounced }
 

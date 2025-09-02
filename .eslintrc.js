@@ -37,10 +37,7 @@ module.exports = {
 				minItems: 3,
 			},
 		],
-		'array-bracket-spacing': [
-			'error',
-			'always',
-		],
+		'array-bracket-spacing': [ 'error', 'always' ],
 		'capitalized-comments': 0,
 		indent: [ 'error', 'tab' ],
 		'padded-blocks': [
@@ -64,16 +61,11 @@ module.exports = {
 				next: 'return',
 			},
 		],
-		'object-curly-spacing': [
-			'error',
-			'always',
-		],
-		semi: [
-			2,
-			'never',
-		],
+		'object-curly-spacing': [ 'error', 'always' ],
+		semi: [ 2, 'never' ],
 		'sort-imports': [
-			'error', {
+			'error',
+			{
 				ignoreCase: false,
 				ignoreDeclarationSort: false,
 				ignoreMemberSort: false,
@@ -83,9 +75,6 @@ module.exports = {
 				allowSeparatedGroups: false,
 			},
 		],
-		'space-in-parens': [
-			'error',
-			'always',
-		],
+		'space-in-parens': [ 'error', 'always' ],
 	},
 }
