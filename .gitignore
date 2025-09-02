@@ -1,4 +1,8 @@
-
 crossover-reclone/
-node_module/*/**
+.yarn/unplugged/
 node_modules
+dist/*/** 
+.claude-flow
+.cursor
+.yarn
+*.exe

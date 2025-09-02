@@ -1,0 +1,63 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.lacymorrow.crossover
+artifactName: ${productName}-${version}-${arch}.${ext}
+copyright: Copyright © Lacy Morrow
+publish: github
+mac:
+  category: public.app-category.utilities
+  darkModeSupport: true
+  target:
+    - target: default
+      arch:
+        - x64
+        - arm64
+dmg:
+  contents:
+    - x: 170
+      'y': 170
+    - x: 480
+      'y': 170
+      type: link
+      path: /Applications
+linux:
+  target:
+    - AppImage
+    - apk
+    - deb
+    - freebsd
+    - pacman
+  category: Game;Shooter
+snap:
+  summary: 🎯 A Crosshair Overlay for any screen.
+  description: CrossOver allows you to place a customizable crosshair overlay above any application window. Improve your aim and gain a competitive advantage with a permanent colored crosshair to mark center screen.
+  plugs:
+    - default
+    - removable-media
+  publish:
+    - github
+    - snapStore
+win:
+  target:
+    - nsis
+    - portable
+  publish: github
+  verifyUpdateCodeSignature: false
+portable:
+  unicode: false
+  artifactName: ${productName}-Portable-${version}.${ext}
+nsis:
+  unicode: false
+  artifactName: ${productName}-${version}.${ext}
+appx:
+  applicationId: CrossOverCrosshairOverlay
+  artifactName: ${productName}.${ext}
+  backgroundColor: '#5500ff'
+  displayName: 'CrossOver: Crosshair Overlay'
+  identityName: 2886Fly5.CrossOverCrosshairOverlay
+  publisher: CN=C53C0091-1EEB-40B4-8537-082E06A4D328
+  publisherDisplayName: Fly5
+  showNameOnTiles: true
+files: []
+electronVersion: 11.5.0

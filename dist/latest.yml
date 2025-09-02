@@ -1,0 +1,8 @@
+version: 3.3.5
+files:
+  - url: CrossOver-3.3.5.exe
+    sha512: CP/HNuPrzRHP42gaK6Xn+BWBwLUMjSiJRRc3huHESzH68KnNOLel+cu2coMHBTAmmo2ErySyxX0MLgf9saFXdA==
+    size: 102243736
+path: CrossOver-3.3.5.exe
+sha512: CP/HNuPrzRHP42gaK6Xn+BWBwLUMjSiJRRc3huHESzH68KnNOLel+cu2coMHBTAmmo2ErySyxX0MLgf9saFXdA==
+releaseDate: '2025-09-02T14:03:48.743Z'
