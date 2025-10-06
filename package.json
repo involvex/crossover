@@ -3,9 +3,9 @@
 	"productName": "CrossOver++",
 	"appId": "involvex.crossover",
 	"version": "3.4.7",
-	"description": "A Crosshair Overlay for any screen",
+	"description": "A Crosshair Overlay for any screen. Forked from `lacymorrow/crossover`",
 	"type": "commonjs",
-	"copyright": "Copyright © involvex",
+	"copyright": "Copyright © involvex and lacymorrow",
 	"repository": "involvex/crossover",
 	"homepage": "https://github.com/involvex/crossover",
 	"company": "Fly5",
@@ -30,6 +30,8 @@
 		"lint": "eslint --fix .",
 		"lint:src": "eslint --fix src",
 		"lint:test": "eslint --fix test",
+		"format":	"prettier . --write --config .prettierrc.yaml",
+		"format:check":	"prettier . --check --config .prettierrc.yaml",
 		"test": "playwright test",
 		"test:verbose": "NODE_ENV=development playwright test",
 		"test:debug": "PWDEBUG=1 CI=1 playwright test",
@@ -93,6 +95,7 @@
 		"nodemon": "^3.0.1",
 		"np": "^10.2.0",
 		"playwright": "^1.39.0",
+		"prettier": "^3.6.2",
 		"sass": "^1.69.5"
 	},
 	"np": {
