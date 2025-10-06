@@ -57,20 +57,17 @@ console.time( 'init' )
 
 const process = require( 'process' )
 
-const electron = require('electron');
-const app = electron.app;
-const ipcMain = electron.ipcMain;
+const electron = require( 'electron' )
+const { app } = electron
+const { ipcMain } = electron
 
 const { checkboxTrue } = require( './config/utils.js' )
-
-
 
 const { is } = require( './main/util' )
 const errorHandling = require( './main/error-handling.js' )
 const log = require( './main/log.js' )
 const preferences = require( './main/preferences.js' ).init()
 const sound = require( './main/sound.js' )
-const autoUpdate = require( './main/auto-update.js' )
 const menu = require( './main/menu.js' )
 const register = require( './main/register.js' )
 const init = require( './main/init.js' )
@@ -78,7 +75,7 @@ const reset = require( './main/reset.js' )
 const tray = require( './main/tray.js' )
 const { appId } = require( '../package.json' )
 
-const enemyDetector = require('./main/enemy-detector.js'); // Import enemyDetector
+const enemyDetector = require( './main/enemy-detector.js' ) // Import enemyDetector
 
 const start = async () => {
 
@@ -170,10 +167,12 @@ const ready = async () => {
 	/* Press Play >>> */
 	await init()
 
-    	// Start enemy detection
-    if (preferences.value('crosshair.detectionMode') !== 'off') {
-        enemyDetector.startDetection();
-    }
+	// Start enemy detection
+	if ( preferences.value( 'crosshair.detectionMode' ) !== 'off' ) {
+
+		enemyDetector.startDetection()
+
+	}
 
 	/* TRAY */
 	tray.init()
@@ -185,7 +184,7 @@ const ready = async () => {
 	sound.preload()
 
 	/* AUTO-UPDATE */
-		// autoUpdate.update() // This is the line to comment out
+	// autoUpdate.update() // This is the line to comment out
 
 	// Alert from developer
 	// alert.init()
@@ -202,22 +201,26 @@ module.exports = async () => {
 	// app.on(...)
 	register.appEvents()
 
-    // IPC Handlers for screen capture data
-    ipcMain.on('screen_capture_data', (event, imageData) => {
-        enemyDetector.analyzeImageData(imageData);
-    });
+	// IPC Handlers for screen capture data
+	ipcMain.on( 'screen_capture_data', ( event, imageData ) => {
 
-    ipcMain.on('screen_capture_error', (event, errorMessage) => {
-        console.error('Screen capture error from renderer:', errorMessage);
-    });
+		enemyDetector.analyzeImageData( imageData )
+
+	} )
+
+	ipcMain.on( 'screen_capture_error', ( event, errorMessage ) => {
+
+		console.error( 'Screen capture error from renderer:', errorMessage )
+
+	} )
 
 	// Quit app when all windows are closed; Fix for Linux tray
 	app.on( 'before-quit', _ => {
 
-		console.log('App is about to quit.');
+		console.log( 'App is about to quit.' )
 
 		// Stop enemy detection
-        enemyDetector.stopDetection();
+		enemyDetector.stopDetection()
 
 		// https://electronjs.org/docs/api/app#event-before-quit
 		// https://electronjs.org/docs/api/tray#traydestroy

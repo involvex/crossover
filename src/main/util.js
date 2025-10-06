@@ -58,10 +58,10 @@ const centerWindow = options => {
 		...options,
 	}
 
-	log.info(`activeWindow(): ${options.window ? options.window.id : 'null'}`);
+	log.info( `activeWindow(): ${options.window ? options.window.id : 'null'}` )
 
 	const bounds = getWindowBoundsCentered( options )
-	log.info(`Calculated bounds: ${JSON.stringify(bounds)}`);
+	log.info( `Calculated bounds: ${JSON.stringify( bounds )}` )
 	options.window.setBounds( bounds, options.animated )
 
 }

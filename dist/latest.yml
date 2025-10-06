@@ -1,8 +1,8 @@
-version: 3.4.5
+version: 3.4.7
 files:
-  - url: Crossoverplusplus-Setup-3.4.5.exe
-    sha512: RqU7eYMGPPMtJcWwVimEzBR+JDQlLLPlOhZ2VqexODaODajDOD+YsEzMC3LOPGmZBp+TlMhyYCibzJigU8n4cA==
-    size: 115944475
-path: Crossoverplusplus-Setup-3.4.5.exe
-sha512: RqU7eYMGPPMtJcWwVimEzBR+JDQlLLPlOhZ2VqexODaODajDOD+YsEzMC3LOPGmZBp+TlMhyYCibzJigU8n4cA==
-releaseDate: '2025-09-02T21:28:04.518Z'
+  - url: Crossoverplusplus-Setup-3.4.7.exe
+    sha512: iXVnn6XgBtu7Mm8574wBtljDAtgYWNtGeSOVkz03twYbQuLl97C2cYKiQTnmYvYXf8Bb6Wu8rc5d26CrNRtUyw==
+    size: 206199643
+path: Crossoverplusplus-Setup-3.4.7.exe
+sha512: iXVnn6XgBtu7Mm8574wBtljDAtgYWNtGeSOVkz03twYbQuLl97C2cYKiQTnmYvYXf8Bb6Wu8rc5d26CrNRtUyw==
+releaseDate: '2025-10-06T22:26:45.794Z'

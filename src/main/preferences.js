@@ -1,14 +1,14 @@
 const { app } = require( 'electron' )
 const path = require( 'path' )
-const os = require('os');
-const { electronVersion } = process.versions.electron || '0.0.0';
+const os = require( 'os' )
+const { electronVersion } = process.versions.electron || '0.0.0'
 
 const debugInfo = () => `
 ${app.getName()} ${app.getVersion()}
 Electron ${electronVersion}
 ${process.platform} ${os.release()}
 Locale: ${app.getLocale()}
-`.trim();
+`.trim()
 const ElectronPreferences = require( 'electron-preferences' )
 const { DEFAULT_THEME, FILE_FILTERS, SETTINGS_WINDOW_DEVTOOLS, SUPPORTED_IMAGE_FILE_TYPES, DEBOUNCE_DELAY } = require( '../config/config.js' )
 /* Via https://github.com/tkambler/electron-preferences */
@@ -21,7 +21,7 @@ const browserWindowOverrides = {
 	// width: 600,
 	// height: 400,
 	webPreferences: {
-		devTools: (process.env.NODE_ENV === 'development') && SETTINGS_WINDOW_DEVTOOLS,
+		devTools: ( process.env.NODE_ENV === 'development' ) && SETTINGS_WINDOW_DEVTOOLS,
 	},
 
 }
@@ -103,7 +103,7 @@ const preferencesConfig = {
 	debounce: DEBOUNCE_DELAY,
 	css: 'src/renderer/styles/dist/preferences.css',
 	dataStore: path.resolve( app.getPath( 'userData' ), 'preferences.json' ),
-	debug: (process.env.NODE_ENV === 'development') && !(process.platform === 'linux'),
+	debug: ( process.env.NODE_ENV === 'development' ) && !( process.platform === 'linux' ),
 	defaults: getDefaults(),
 
 	/**
@@ -243,17 +243,6 @@ const preferencesConfig = {
 								key: 'positionY',
 								type: 'number',
 								help: 'Vertical position of the crosshair (in pixels)',
-							},
-							{
-								label: 'Enemy Detection Mode',
-								key: 'detectionMode',
-								type: 'radio',
-								options: [
-									{ label: 'Off', value: 'off' },
-									{ label: 'Pixel Detection', value: 'pixel' },
-									{ label: 'AI Detection (Experimental)', value: 'ai' },
-								],
-								help: 'Select the method for enemy detection. "Pixel Detection" changes crosshair color based on enemy health bars. "AI Detection" will use an AI model for improved detection (future feature).',
 							},
 							{
 								label: 'Enemy Detection Mode',
@@ -622,14 +611,14 @@ const preferencesConfig = {
 							{
 								heading: `CrossOver v${app.getVersion()}`,
 								content: `
-									<p>A crosshair overlay for any screen.<br /> 
-									Feedback and bug reports welcome at <a target="_blank" href="https://github.com/lacymorrow/crossover/issues">lacymorrow/crossover</a>.<br /> 
-									Developed by Lacy Morrow. Crosshairs thanks to /u/IrisFlame.</p> 
-									<p>Copyright © Lacy Morrow ${new Date().getFullYear()}</p> 
-									<p>${debugInfo}</p> 
-									<br/> 
-									<p>Looking for a designer!<br />We want to redesign CrossOver, reach out to <a target="_blank" href="mailto:me@lacymorrow.com">me@lacymorrow.com</a> 
-									for details.</p>
+									<p>A crosshair overlay for any screen.<br />
+									Feedback and bug reports welcome at <a target="_blank" href="https://github.com/involvex/crossover/issues">involvex/crossover</a>.<br />
+									Developed by involvex. Crosshairs thanks to /u/IrisFlame.</p>
+									<p>Copyright © involvex ${new Date().getFullYear()}</p>
+									<p>${debugInfo()}</p>
+									<br/>
+									<p>Looking for a designer!<br />We want to redesign CrossOver
+									</p>
 								`,
 								type: 'message',
 							},

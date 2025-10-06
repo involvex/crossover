@@ -33,7 +33,7 @@ const init = async () => {
 	// 	reportButton( error ) {
 
 	// 		openNewGitHubIssue( {
-	// 			user: 'lacymorrow',
+	// 			user: 'involvex',
 	// 			repo: 'crossover',
 	// 			body: reportBody( error ),
 	// 		} )

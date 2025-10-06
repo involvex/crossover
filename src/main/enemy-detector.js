@@ -19,7 +19,7 @@ const isRed = ( r, g, b ) =>
 // This function will be called by the IPC handler when image data is received from the renderer
 const analyzeImageData = imageData => {
 
-	const pixels = new Uint8ClampedArray( imageData.data ) // Convert Buffer to Uint8ClampedArray
+	const pixels = new Uint8ClampedArray( imageData.data ) // Convert array to Uint8ClampedArray
 
 	let redPixelCount = 0
 	for ( let i = 0; i < pixels.length; i += 4 ) {
@@ -42,13 +42,23 @@ const analyzeImageData = imageData => {
 
 	if ( redPixelPercentage >= ENEMY_THRESHOLD_PERCENTAGE ) {
 
-		set.rendererProperties( { '--reticle-fill-color': 'red' }, windows.win ) // Change to red
+		// Make crosshair full red on enemy detection
+		set.rendererProperties( {
+			'--reticle-fill-color': 'red',
+			'--svg-fill-color': 'red',
+			'--svg-stroke-color': 'red',
+		}, windows.win )
 
 	} else {
 
-		// Revert to original color
+		// Revert to original colors
+		const originalColor = preferences.value( 'crosshair.color' )
 		set.rendererProperties(
-			{ '--reticle-fill-color': preferences.value( 'crosshair.color' ) },
+			{
+				'--reticle-fill-color': originalColor,
+				'--svg-fill-color': 'inherit',
+				'--svg-stroke-color': 'inherit',
+			},
 			windows.win,
 		)
 
@@ -84,8 +94,13 @@ const startDetection = () => {
 		if ( detectionMode === 'off' ) {
 
 			// If detection is off, ensure crosshair is original color and stop interval
+			const originalColor = preferences.value( 'crosshair.color' )
 			set.rendererProperties(
-				{ '--reticle-fill-color': preferences.value( 'crosshair.color' ) },
+				{
+					'--reticle-fill-color': originalColor,
+					'--svg-fill-color': 'inherit',
+					'--svg-stroke-color': 'inherit',
+				},
 				windows.win,
 			)
 			clearInterval( detectionInterval )
@@ -110,8 +125,8 @@ const startDetection = () => {
 			const { width, height } = primaryDisplay.size
 
 			const captureRect = {
-				x: Math.max( 0, crosshairX - CAPTURE_SIZE / 2 ),
-				y: Math.max( 0, crosshairY - CAPTURE_SIZE / 2 ),
+				x: Math.max( 0, crosshairX - ( CAPTURE_SIZE / 2 ) ),
+				y: Math.max( 0, crosshairY - ( CAPTURE_SIZE / 2 ) ),
 				width: CAPTURE_SIZE,
 				height: CAPTURE_SIZE,
 			}

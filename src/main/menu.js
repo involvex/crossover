@@ -79,15 +79,11 @@ const showAppMenuItem = {
 const helpSubmenu = [
 	openUrlMenuItem( {
 		label: 'Learn more about CrossOver',
-		url: 'lacymorrow.github.io/crossover',
+		url: 'involvex.github.io/crossover',
 	} ),
 	openUrlMenuItem( {
 		label: 'Contribute on GitHub',
-		url: 'https://github.com/lacymorrow/crossover',
-	} ),
-	openUrlMenuItem( {
-		label: 'Support the Developer',
-		url: 'https://www.patreon.com/lacymorrow',
+		url: 'https://github.com/involvex/crossover',
 	} ),
 	{
 		type: 'separator',
@@ -97,7 +93,7 @@ const helpSubmenu = [
 		click() {
 
 			openNewGitHubIssue( {
-				user: 'lacymorrow',
+				user: 'involvex',
 				repo: 'crossover',
 				body: errorHandling.reportBody(),
 			} )
@@ -107,7 +103,7 @@ const helpSubmenu = [
 	resetMenuItem,
 	aboutMenuItem( {
 		icon: path.join( __dirname, 'static', 'icons', 'icon.png' ),
-		text: 'Created by Lacy Morrow',
+		text: 'Created by involvex',
 	} ),
 ]
 

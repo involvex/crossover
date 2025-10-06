@@ -22,7 +22,8 @@ const unregisterIOHook = () => {
 	const oldCrosshairSize = Number.parseInt( preferences.value( 'crosshair.size' ), 10 )
 
 	// If smaller/tilted; move to actual size
-	if (windows.win) {
+	if ( windows.win ) {
+
 		set.rendererProperties(
 			{
 				'--crosshair-opacity': opacity.toString(),
@@ -32,6 +33,7 @@ const unregisterIOHook = () => {
 			},
 			windows.win,
 		)
+
 	}
 
 	// Reset any changes to the prefs

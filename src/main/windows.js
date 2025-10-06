@@ -19,6 +19,7 @@ const init = async options => {
 	if ( windows.win ) {
 
 		log.info( 'windows.win already exists. Returning existing instance.' )
+
 		return windows.win
 
 	}

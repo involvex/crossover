@@ -113,8 +113,7 @@ jobs:
           name: Cut stable branch
           command: |
             rm yarn.lock package-lock.json || echo "No lock files to remove"
-            git config user.email "me@lacymorrow.com"
-            git config user.name "Lacy CI"
+            git config user.name "involvex"
             git checkout stable || git checkout -b stable
             git pull
             git merge ${CIRCLE_BRANCH} || echo "Not merging to stable"

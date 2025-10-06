@@ -2,12 +2,14 @@ directories:
   output: dist
   buildResources: build
 appId: involvex.crossover
-electronVersion: 25.0.0
+electronVersion: 14.0.0
 files:
   - filter:
       - '**/*'
       - '!node_modules/@nodert-win10-au/**'
       - '!node_modules/fsevents/**'
+asarUnpack:
+  - '**/node_modules/uiohook-napi/**'
 artifactName: ${productName}-${version}-${arch}.${ext}
 copyright: 'Copyright © involvex '
 publish: github

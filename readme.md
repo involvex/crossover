@@ -544,7 +544,7 @@ An extra big thanks to the crosshair providers, as this wouldn't be possible wit
 
 See CrossOver in the [Electron Apps library](https://www.electronjs.org/apps/crossover)
 
-Created by [Lacy Morrow](http://lacymorrow.com)
+Created by [involvex](http://lacymorrow.com)
 
 # Support this project
 

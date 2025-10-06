@@ -26,8 +26,8 @@ const openAboutWindow = () => {
 
 	showAboutWindow( {
 		icon: path.join( __static, 'icons', 'icon.png' ),
-		copyright: `🎯 CrossOver ${app.getVersion()} | Copyright © Lacy Morrow`,
-		text: `A crosshair overlay for any screen. Feedback and bug reports welcome. Created by Lacy Morrow. Crosshairs thanks to /u/IrisFlame. ${is.development && ' | ' + debugInfo()} GPU: ${app.getGPUFeatureStatus().gpu_compositing}`,
+		copyright: `🎯 CrossOver ${app.getVersion()} | Copyright © involvex`,
+		text: `A crosshair overlay for any screen. Feedback and bug reports welcome. Created by involvex. Crosshairs thanks to /u/IrisFlame. ${is.development && ' | ' + debugInfo()} GPU: ${app.getGPUFeatureStatus().gpu_compositing}`,
 	} )
 
 }
@@ -101,7 +101,7 @@ const openReportCrashDialog = async crash => {
 
 			if ( buttonIndex === 1 ) {
 
-				crash.submitIssue( 'https://github.com/lacymorrow/crossover/issues/new', {
+				crash.submitIssue( 'https://github.com/involvex/crossover/issues/new', {
 					title: `Error report for ${crash.versions.app}`,
 					body: 'Error:\n```' + crash.error.stack + '\n```\n' + `OS: ${crash.versions.os}`,
 				} )

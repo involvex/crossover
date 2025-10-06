@@ -85,7 +85,7 @@ const appEvents = () => {
 
 		} )
 
-		// Security workaround for https://github.com/lacymorrow/crossover/security/dependabot/7
+		// Security workaround for https://github.com/involvex/crossover/security/dependabot/7
 		// Affects electron < 13.6.6
 		webContents.on( 'select-bluetooth-device', ( event, devices, callback ) => {
 
