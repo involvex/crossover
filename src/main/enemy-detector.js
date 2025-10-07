@@ -8,10 +8,10 @@ const DETECTION_INTERVAL_MS = 100 // Check every 100ms
 const CAPTURE_SIZE = 50 // Capture a 50x50 pixel area around the crosshair
 
 // Define the red color range for enemy health bars (adjust as needed)
-const RED_MIN = 180
+const RED_MIN = 150 // Lowered from 180
 const RED_MAX = 255
-const GREEN_MAX = 80
-const BLUE_MAX = 80
+const GREEN_MAX = 100 // Increased from 80
+const BLUE_MAX = 100 // Increased from 80
 
 const isRed = ( r, g, b ) =>
 	r >= RED_MIN && r <= RED_MAX && g <= GREEN_MAX && b <= BLUE_MAX
@@ -39,6 +39,8 @@ const analyzeImageData = imageData => {
 	const redPixelPercentage = ( redPixelCount / totalPixels ) * 100
 
 	const ENEMY_THRESHOLD_PERCENTAGE = 5 // If more than 5% of pixels are red, consider it an enemy
+
+	console.log( `Enemy Detection: Red Pixels: ${redPixelCount}/${totalPixels} (${redPixelPercentage.toFixed(2)}%)` )
 
 	if ( redPixelPercentage >= ENEMY_THRESHOLD_PERCENTAGE ) {
 
